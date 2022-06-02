@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!----------------------------------->
+<!-------------- HEAD --------------->
+<!----------------------------------->
+<head>
+  <!-- Specify the CSS stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tstyle.css">
+  
+  <!-- Specify the CSS stylesheet for map -->
+  <link rel="stylesheet" href="./leaflet/leaflet.css"/>
+  <script src="./leaflet/leaflet.js"></script>
+	
+  <!-- Make page compliant to various devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Website info -->
+  <title>Where Are The Blackbirds?</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156279949-1"></script>
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-156279949-1');
+  </script>
+</head>
+
+<!----------------------------------->
+<!-------------- BODY --------------->
+<!----------------------------------->
+<body>
+	<!-- Header -->
+	<div class="header">Where are the Blackbirds?</div>
+
+	<!-- Navigation Bar -->
+	<script type="text/javascript" src="./include/nav.js"></script>
+
+	<!-- Map -->
+	<br><div id="map"></div><br>
+	
+	<!-- Table -->
+	<button class="collapsible">Table of Locations</button>
+	<div class="content">
+		<table id="mySortTable">
+		  <tr>
+			<th onclick="sortTable(0)">SN</th>
+			<th onclick="sortTable(1)">Museum</th>
+			<th onclick="sortTable(2)">City</th>
+			<th onclick="sortTable(3)">State</th>
+			<tr>
+				<td>60-6938</td>
+				<td>Battleship Memorial Park</td>
+				<td>Mobile</td>
+				<td>AL</td>
+			</tr>
+			<tr>
+				<td>60-6937</td>
+				<td>Southern Museum of Flight</td>
+				<td>Birmingham</td>
+				<td>AL</td>
+			</tr>
+			<tr>
+				<td>60-6930</td>
+				<td>Alabama Space and Rocket Center</td>
+				<td>Huntsville</td>
+				<td>AL</td>
+			</tr>
+			<tr>
+				<td>61-7951</td>
+				<td>Pima Air Museum</td>
+				<td>Tucson</td>
+				<td>AZ</td>
+			</tr>
+			<tr>
+				<td>60-6933</td>
+				<td>San Diego Air & Space Museum</td>
+				<td>San Diego</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7975</td>
+				<td>March Field Museum</td>
+				<td>Riverside</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>60-6927</td>
+				<td>California Science Center</td>
+				<td>Los Angeles</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>60-6924</td>
+				<td>Blackbird Airpark</td>
+				<td>Palmdale</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7973</td>
+				<td>Blackbird Airpark</td>
+				<td>Palmdale</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7955</td>
+				<td>Air Force Flight Test Center Museum</td>
+				<td>Rosamond</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7960</td>
+				<td>Castle Air Museum</td>
+				<td>Atwater</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7963</td>
+				<td>Beale AFB Museum</td>
+				<td>Marysville</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7980</td>
+				<td>Edwards AFB</td>
+				<td>Rosamond</td>
+				<td>CA</td>
+			</tr>
+			<tr>
+				<td>61-7959</td>
+				<td>Air Force Armament Museum</td>
+				<td>Valparaiso</td>
+				<td>FL</td>
+			</tr>
+			<tr>
+				<td>61-7958</td>
+				<td>Museum of Aviation</td>
+				<td>Warner Robins</td>
+				<td>GA</td>
+			</tr>
+			<tr>
+				<td>61-7961</td>
+				<td>Cosmosphere</td>
+				<td>Hutchinson</td>
+				<td>KS</td>
+			</tr>
+			<tr>
+				<td>61-7967</td>
+				<td>Barksdale Global Power Museum</td>
+				<td>Shreveport</td>
+				<td>LA</td>
+			</tr>
+			<tr>
+				<td>61-7956</td>
+				<td>Kalamazoo Air Zoo</td>
+				<td>Kalamazoo</td>
+				<td>MI</td>
+			</tr>
+			<tr>
+				<td>61-7964</td>
+				<td>Strategic Air Command Museum</td>
+				<td>Ashland</td>
+				<td>NE</td>
+			</tr>
+			<tr>
+				<td>60-6925</td>
+				<td>Intrepid Sea-Air-Space Museum</td>
+				<td>New York City</td>
+				<td>NY</td>
+			</tr>
+			<tr>
+				<td>61-7976</td>
+				<td>U.S. Air Force Museum, Wright-Patterson AFB</td>
+				<td>Dayton</td>
+				<td>OH</td>
+			</tr>
+			<tr>
+				<td>60-6935</td>
+				<td>U.S. Air Force Museum</td>
+				<td>Dayton</td>
+				<td>OH</td>
+			</tr>
+			<tr>
+				<td>61-7971</td>
+				<td>Evergreen Aviation Museum</td>
+				<td>McMinnville</td>
+				<td>OR</td>
+			</tr>
+			<tr>
+				<td>61-7979</td>
+				<td>Lackland AFB</td>
+				<td>San Antonio</td>
+				<td>TX</td>
+			</tr>
+			<tr>
+				<td>61-7962</td>
+				<td>Imperial War Museum Duxford</td>
+				<td>Duxford</td>
+				<td>UK</td>
+			</tr>
+			<tr>
+				<td>61-7981</td>
+				<td>Hill AFB Museum</td>
+				<td>Ogden</td>
+				<td>UT</td>
+			</tr>
+			<tr>
+				<td>61-7972</td>
+				<td>Udvar-Hazy Center</td>
+				<td>Chantilly</td>
+				<td>VA</td>
+			</tr>
+			<tr>
+				<td>60-6931</td>
+				<td>Central Intelligence Agency Museum</td>
+				<td>Langley</td>
+				<td>VA</td>
+			</tr>
+			<tr>
+				<td>61-7968</td>
+				<td>Science Museum of Virginia</td>
+				<td>Richmond</td>
+				<td>VA</td>
+			</tr>
+			<tr>
+				<td>60-6940</td>
+				<td>Museum of Flight</td>
+				<td>Seattle</td>
+				<td>WA</td>
+			</tr>
+		</table>
+	</div>
+
+<h1>Blackbird Variants</h1>
+<p>"Blackbirds" is referred to family of airplanes variants, specifically the A-12, SR-71, M-21, and YF-12. The planes are similar but have some key differences.</p>
+
+<!-- Source: https://www.cia.gov/news-information/featured-story-archive/2015-featured-story-archive/oxcart-vs-blackbird.html -->
+<p><b>A-12: </b> Single-seat reconnaissance aircraft developed by the CIA under project OXCART as the U-2 spy plane's successor. It was intended to meet the nation's need for a very fast, very high-flying reconnaissance aircraft that could avoid Soviet air defenses.</p>
+
+<!-- Source: https://www.cia.gov/news-information/featured-story-archive/2015-featured-story-archive/oxcart-vs-blackbird.html -->
+<p><b>SR-71: </b>Dual-seat SR-71 Blackbird was the Air Force's two-seat follow-on version of the OXCART. The SR-71 Blackbird was about six feet longer, weighed an additional 15,000 pounds fully loaded, had a more prominent nose and body chines, had a two-seat cockpit, and carried additional optical and radar imagery systems.</p>
+
+<!-- Source: https://www.nasa.gov/pdf/736495main_Blackbird_FAQ.pdf -->
+<p><b>M-21: </b>Mothership for the D-21 reconnaissance drone. It had a pilot and a Launch Control Officer (LCO). The mated combination was called the MD-21. There were a total of two M-21 aircraft built, but one crashed after the aircraft collided with a D-21 during the launch. The only surviving one is available for viewing at Museum of Flight in Seattle, WA.</p>
+
+<!-- Source: https://www.nasa.gov/pdf/736495main_Blackbird_FAQ.pdf -->
+<p><b>YF-12A: </b>Prototype interceptor capable of launching air-to-air missiles. It had a pilot and a Fire Control Officer (FCO). Out of the three built, only one YF-12A is still in existance at the National Museum of the U.S. Air Force in Dayton, OH.</p>
+
+<h1>Trainer Variants</h1>
+<!-- Source: https://californiasciencecenter.org/exhibits/air-space/air-aircraft/a-12-blackbird -->
+<p><b>TA-12: </b>The only A-12 trainer ever built is on display at California Science Center in Los Angeles, CA. The trainer has two cockpits: one for an instructor and one for a pilot in training. The plane is mostly bare-metal and hence is given the nickname "Titanium Goose".</p>
+
+<!-- Source: https://www.aerospaceutah.org/sr-71c-blackbird/ -->
+<p><b>SR-71B: </b>The only remaining SR-71B in the world is located at Kalamazoo Air Zoo in Kalamazoo, MI. This aircraft is characterized by its raised rear-cockpit for the Instructor Pilot (IP) and by the two fins that are found under each engine nacelle.</p>
+
+<!-- Source: https://www.aerospaceutah.org/sr-71c-blackbird/ -->
+<p><b>SR-71C: </b>There was only one C model Blackbird ever built, and it was the final SR-71 to be manufactured. It is located in Hill Aerospace Museum in  Ogden,UT. The C model is a hybrid between the rear fuselage of the YF-12A and a functional engine mock up of a SR-71A forward fuselage built for static testing. The C model was built after the second of the two B model trainers crashed in January of 1968.</p>
+
+</body>
+
+<!----------------------------------->
+<!------------ SCRIPTS -------------->
+<!----------------------------------->
+<!-- Collapsible table -->
+<script src="./include/collapsecontent.js" type="text/javascript"></script>
+<script src="./include/sortTable.js" type="text/javascript"></script>
+
+<!-- Map script -->
+<script src="./include/BlackBirdLocs.js" type="text/javascript"></script>
+<script>
+	/* Map tiles (backgrounds) */
+	var mapview  = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+								attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
+		satImage = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+								attribution: 'Tiles &copy; Esri'}),
+		satLabel = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.{ext}', {
+								attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>',
+								subdomains: 'abcd',
+								ext: 'png'});
+								
+    /* Combine satellite background and label */
+	var satellite = L.layerGroup([
+					satImage,
+					satLabel]);
+
+	/* Setup map */
+    var map = L.map('map',{
+		minZoom:1,					/* Can only zoom out so much */
+		maxZoom: 18,				/* Maximum zooming in */
+		maxBoundsViscosity:0.9,		/* Bounce map back if outside of defined bounds */
+		layers: mapview,			/* Add default map layer */
+		worldCopyJump: true			/* Copy markers if the world edge was periodic boundary */		
+	});
+	
+	/* Set up bounds */
+	map.fitBounds([[50.0,-123],[24.4,-63.6]]);		/* Setup map so it is zoomed in on CONUS intially */
+	var southWest = L.latLng(-90, -180),			/* Setup map so it cannot be infinitely dragged */
+		northEast = L.latLng(90, 180),
+	    bounds = L.latLngBounds(southWest, northEast);
+	map.setMaxBounds(bounds);
+	
+	/* Set available selection layers */
+	var baseLayers = {
+		"Map": mapview,
+		"Satellite": satellite};
+	L.control.layers(baseLayers).addTo(map);
+	
+	/* Add blackbird locations */
+	var blackbird = L.layerGroup();
+	L.geoJSON(BlackBirdGPS, {onEachFeature: onEachFeature}).addTo(blackbird);
+	map.addLayer(blackbird);		/* Show blackbird locations */
+</script>

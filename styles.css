@@ -1,0 +1,298 @@
+/* ------------------------------------------------ */
+/* Header  	        */
+/* ------------------------------------------------ */  
+.header {
+  position: relative;
+  text-align: center;
+  color: black;
+  background-color: white;
+  font-family: Calibri;  /* Font */
+  font-size: 17px;
+  padding: 10px;
+}
+
+/* Paragraph style */
+p {
+  font-family: Calibri;  /* Font */
+  font-size: 17px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom:0px;
+}
+
+h1 {
+  font-family: Calibri;  /* Font */
+  font-size: 24px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+
+ul {
+  font-family: Calibri;  /* Font */
+  font-size: 17px;
+  margin-top: 5px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* ------------------------------------------------ */
+/* Navigation Bar   */
+/* ------------------------------------------------ */ 
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Calibri;  /* Font */
+  font-size: 17px;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float:left;		     /* Makes it navigation bar horizontal */
+  text-decoration: none; /* Removes hyperlink format */
+  color: #f2f2f2;		 /* White font color */
+  text-align: center;    /* Text in center */
+  padding: 14px 0px;
+  width:140px;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Show active page */
+.topnav a.active {
+  background-color: #4CAF50; 	/* Green background */
+  color: white;					/* White text */
+}
+
+/* ------------------------------------------------ */
+/* Dropdown menu */
+/* ------------------------------------------------ */ 
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  width:140px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  width: 170px;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+  width: 170px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* ------------------------------------------------ */
+/* Smaller Screen   */
+/* ------------------------------------------------ */ 
+/* Right align on navigation bar */
+.topnav-right {
+  float: right;
+}
+
+/* Show icon on navigation bar to close or open menu*/
+.icon {
+  background-color: #4CAF50; 	/* Green background */
+  color: black;
+  width: 50px;
+  height: 50px;
+  font-size: 17px;
+  text-align: center;
+  font-family: Calibri;
+  border: none;
+  cursor: pointer;
+}
+
+/* Do not show menu icon by default */
+.topnav .icon {
+  display: none;
+}
+
+/* For smaller screens */
+@media screen and (max-width: 600px) {
+  .topnav a, .dropdown .dropbtn {display: none;} /* Hide all on navigation bar */
+  .topnav button.icon {display: block;} 	     /* Show icon */
+  
+  /* Responsive navigation bar properties */
+  .topnav.responsive {position: relative;}
+  
+  /* Navigation bar a properties */
+  .topnav.responsive a {  
+    float: none;
+    display: block;
+  }
+  
+  /* Overlay properties */
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+	  font-size: 40px;
+	  top: 15px;
+	  right: 35px;
+  }
+  
+  .overlay-dropdown:hover .overlay-dropdown-content {display: block;}
+}
+/* ------------------------------------------------ */
+/* Overlay   */
+/* ------------------------------------------------ */ 
+/* Right align on navigation bar */
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-family: Calibri;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* ------------------------------------------------ */
+/* Overlay Dropdown */
+/* ------------------------------------------------ */ 
+.overlay-dropdown {
+  overflow: hidden;
+  width:100%;
+}
+
+.overlay-dropbtn{
+  position: relative;
+  text-align: center;
+}
+
+.overlay-dropdown-content {
+  text-decoration: none;
+  display: none;
+}
+
+.overlay-dropdown-content a {
+  padding: 4px;
+  text-decoration: none;
+  font-family: Calibri;
+  font-size: 24px;
+  color: #D3D3D3;
+  background-color: rgba(105,105,105, 0.90);
+  display: block;
+}
+
+/* ---------------- */
+/* Map              */
+/* ---------------- */
+#map{
+    padding-bottom:30%;
+	margin-left: 20%;
+	margin-right: 20%;
+    position:relative;
+	width:60%;
+	border:1px solid black;
+    z-index: 0;
+}
+
+
+/* For smaller screens */
+@media screen and (max-width: 600px) {
+	#map{
+		padding-bottom:60%;
+		margin-left: 10%;
+		margin-right: 10%;
+		position:relative;
+		width:80%;
+		z-index: 0;
+	}
+}
+
+/* ---------------- */
+/* Image            */
+/* ---------------- */ 
+img.ri{
+	position: relative;
+	width: 70%;
+	max-width: 400px;
+	margin-top: 5px;
+	left: 1%;
+}
+/* For smaller screens */
+@media screen and (max-width: 600px) {
+	img.ri{
+	width: 80%;
+	max-width: 80%;
+	right: 10%;
+	left: 10%;}
+}
+	
+/* ---------------- */
+/* Body             */
+/* ---------------- */  
+body {
+  margin: 0px;
+}

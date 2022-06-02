@@ -1,0 +1,50 @@
+{"markers": [],
+  "type": "FeatureCollection",
+  "properties": {"simplify": 4}, "groups": [],
+  "features": [
+   {
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-80.68043800,28.52493700]},
+	"type": "Feature",
+	"properties": {
+		"url": "http://wherearetheplanes.com/Shuttle/Atlantis.html",
+		"description": "Atlantis",
+		"marker-symbol": "airport",
+		"title": "Kennedy Space Center Visitor Complex"
+	}},
+   {
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-77.44531700,38.91143400]},
+	"type": "Feature",
+	"properties": {
+		"url": "http://wherearetheplanes.com/Shuttle/Discovery.html",
+		"description": "Discovery ",
+		"marker-symbol": "airport",
+		"title": "Steven F. Udvar-Hazy Center"
+	}},
+   {
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-118.28731200,34.01618800]},
+	"type": "Feature",
+	"properties": {
+		"url": "http://wherearetheplanes.com/Shuttle/Endeavour.html",
+		"description": "Endeavour ",
+		"marker-symbol": "airport",
+		"title": "California Science Center"
+	}},
+   {
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-74.00181200,40.76518700]},
+	"type": "Feature",
+	"properties": {
+		"url": "http://wherearetheplanes.com/Shuttle/Enterprise.html",
+		"description": "Enterprise ",
+		"marker-symbol": "airport",
+		"title": "Intrepid Sea Air & Space Museum"
+	}}
+	]
+}

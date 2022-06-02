@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!----------------------------------->
+<!-------------- HEAD --------------->
+<!----------------------------------->
+<head>
+  <!-- Specify the CSS stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tstyle.css">
+  
+  <!-- Specify the CSS stylesheet for map -->
+  <link rel="stylesheet" href="./leaflet/leaflet.css"/>
+  <script src="./leaflet/leaflet.js"></script>
+	
+  <!-- Make page compliant to various devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Website info -->
+  <title>Where Are The Concordes?</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156279949-1"></script>
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-156279949-1');
+  </script>
+</head>
+
+<!----------------------------------->
+<!-------------- BODY --------------->
+<!----------------------------------->
+<body>
+	<!-- Header -->
+	<div class="header">Where are the Concordes?</div>
+
+	<!-- Navigation Bar -->
+	<script type="text/javascript" src="./include/nav.js"></script>
+
+	<!-- Map -->
+	<br><div id="map"></div><br>
+	
+	<!-- Table -->
+	<button class="collapsible">Table of Locations</button>
+	<div class="content">
+		<table id="mySortTable">
+		  <tr>
+			<th onclick="sortTable(0)">SN</th>
+			<th onclick="sortTable(1)">Museum</th>
+			<th onclick="sortTable(2)">City</th>
+			<th onclick="sortTable(3)">Country</th>
+			<tr>
+				<td>001</td>
+				<td>National Air and Space Museum</td>
+				<td>Le Bourget</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>Fleet Air Arm Museum</td>
+				<td>Yeovilton</td>
+				<td>England</td>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Imperial War Museum</td>
+				<td>Duxford</td>
+				<td>England</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Musée Delta</td>
+				<td>Paris</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>201</td>
+				<td>Musée Aeroscopia (Airbus Factory)</td>
+				<td>Toulouse</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>202</td>
+				<td>Brooklands Museum</td>
+				<td>Weybridge</td>
+				<td>England</td>
+			</tr>
+			<tr>
+				<td>204</td>
+				<td>Runway Visitor Park</td>
+				<td>Manchester</td>
+				<td>England</td>
+			</tr>
+			<tr>
+				<td>205</td>
+				<td>Steven F. Udvar-Hazy Center</td>
+				<td>Chantilly</td>
+				<td>USA (VA)</td>
+			</tr>
+			<tr>
+				<td>206</td>
+				<td>National Museums Scotland</td>
+				<td>East Lothian</td>
+				<td>Scotland</td>
+			</tr>
+			<tr>
+				<td>207</td>
+				<td>Sinsheim Auto & Technik Museum</td>
+				<td>Sinsheim</td>
+				<td>Germany</td>
+			</tr>
+			<tr>
+				<td>208</td>
+				<td>Heathrow Airport</td>
+				<td>London</td>
+				<td>England</td>
+			</tr>
+			<tr>
+				<td>209</td>
+				<td>Musée Aeroscopia (Airbus Factory)</td>
+				<td>Toulouse</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>210</td>
+				<td>Intrepid Sea-Air-Space Museum</td>
+				<td>New York</td>
+				<td>USA (NY)</td>
+			</tr>
+			<tr>
+				<td>212</td>
+				<td>Grantley Adams International Airport - CLOSED</td>
+				<td>Spencers</td>
+				<td>Barbados</td>
+			</tr>
+			<tr>
+				<td>213</td>
+				<td>National Air and Space Museum</td>
+				<td>Le Bourget</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>214</td>
+				<td>Museum of Flight</td>
+				<td>Seattle</td>
+				<td>USA (WA)</td>
+			</tr>
+			<tr>
+				<td>215</td>
+				<td>Charles de Gaulle Airport</td>
+				<td>Paris</td>
+				<td>France</td>
+			</tr>
+			<tr>
+				<td>216</td>
+				<td>Aerospace Bristol</td>
+				<td>Bristol</td>
+				<td>England</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+
+<!----------------------------------->
+<!------------ SCRIPTS -------------->
+<!----------------------------------->
+<!-- Collapsible table -->
+<script src="./include/collapsecontent.js" type="text/javascript"></script>
+<script src="./include/sortTable.js" type="text/javascript"></script>
+
+<!-- Map script -->
+<script src="./include/ConcordeLocs.js" type="text/javascript"></script>
+<script>
+	/* Map tiles (backgrounds) */
+	var mapview  = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+								attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
+		satImage = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+								attribution: 'Tiles &copy; Esri'}),
+		satLabel = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.{ext}', {
+								attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>',
+								subdomains: 'abcd',
+								ext: 'png'});
+								
+    /* Combine satellite background and label */
+	var satellite = L.layerGroup([
+					satImage,
+					satLabel]);
+
+	/* Setup map */
+    var map = L.map('map',{
+		minZoom:1,					/* Can only zoom out so much */
+		maxZoom: 18,				/* Maximum zooming in */
+		maxBoundsViscosity:0.9,		/* Bounce map back if outside of defined bounds */
+		layers: mapview,			/* Add default map layer */
+		worldCopyJump: true			/* Copy markers if the world edge was periodic boundary */		
+	});
+	
+	/* Set up bounds */
+	map.fitBounds([[50.0,-123],[24.4,8]]);		/* Setup map so it is zoomed in on CONUS intially */
+	var southWest = L.latLng(-90, -180),			/* Setup map so it cannot be infinitely dragged */
+		northEast = L.latLng(90, 180),
+	    bounds = L.latLngBounds(southWest, northEast);
+	map.setMaxBounds(bounds);
+	
+	/* Set available selection layers */
+	var baseLayers = {
+		"Map": mapview,
+		"Satellite": satellite};
+	L.control.layers(baseLayers).addTo(map);
+	
+	/* Add concorde locations */
+	var concorde = L.layerGroup();
+	L.geoJSON(ConcordeGPS, {onEachFeature: onEachFeature}).addTo(concorde);
+	map.addLayer(concorde);		/* Show concorde locations */
+</script>
